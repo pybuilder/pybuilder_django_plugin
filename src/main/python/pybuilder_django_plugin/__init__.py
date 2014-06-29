@@ -13,7 +13,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-from pybuilder.core import task
+from pybuilder.core import description, task
 from subprocess import call
 from os.path import join
 
@@ -24,7 +24,10 @@ def initialize_django_project(project, logger):
 
 
 @task
+@description('Starts Django development server')
 def django_run_server(project, logger):
+    """ This task is here for backwards compatibility. """
+    logger.info('Starting Django development server ...')
     django_module_name = project.get_property('pybuilder_django_plugin_project_name')
     path_to_manager = join(django_module_name, 'manage.py')
     call(['python', path_to_manager, 'runserver'])
