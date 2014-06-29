@@ -39,6 +39,8 @@ default_task = ['initialize_django_project', 'analyze', 'publish']
 
 @init
 def set_properties(project):
+    project.depends_on('Django')
+
     project.set_property('flake8_verbose_output', True)
     project.set_property('flake8_break_build', True)
 
