@@ -54,3 +54,6 @@ docs/_build/
 
 # virtual environment
 venv
+
+# PyBuilder
+target/
