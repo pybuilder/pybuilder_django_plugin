@@ -18,7 +18,7 @@ import sys
 sys.path.insert(0, 'src/main/python')
 
 from pybuilder.core import Author, init, use_plugin
-from pybuilder_django_plugin import initialize_django_project
+from pybuilder_django_plugin import initialize_django_project, django_run_server
 
 use_plugin('python.core')
 use_plugin('python.distutils')
@@ -40,6 +40,8 @@ default_task = ['initialize_django_project', 'analyze', 'publish']
 @init
 def set_properties(project):
     project.depends_on('Django')
+
+    project.set_property('pybuilder_django_plugin_project_name', 'example_application')
 
     project.set_property('flake8_verbose_output', True)
     project.set_property('flake8_break_build', True)
